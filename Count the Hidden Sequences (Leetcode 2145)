@@ -1,0 +1,17 @@
+class Solution {
+    public int numberOfArrays(int[] nums, int lower, int upper) {
+        int n = nums.length;
+        int count  = 0;
+        int minval = 0;
+        int maxval = 0;
+        int curr = 0;
+        for(int i = 0; i < n; i++) {
+            curr += nums[i];
+            minval = Math.min(minval , curr);
+            maxval = Math.max(maxval , curr);
+            if((upper - maxval) - (lower - minval) + 1 <= 0)
+               return 0;
+        }
+        return (upper - maxval) - (lower - minval) + 1;
+    }
+}

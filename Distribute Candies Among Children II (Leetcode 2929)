@@ -1,0 +1,14 @@
+class Solution {
+    public long distributeCandies(int n, int limit) {
+        int mini1 = Math.max(0 , n - 2 * limit);
+        int maxi1 = Math.min(n , limit);
+        long ways = 0;
+        for(int i = mini1; i <= maxi1; i++) {
+            int N = n - i;
+            int mini2 = Math.max(0 , N - limit);
+            int maxi2 = Math.min(N , limit);
+            ways += maxi2 - mini2 + 1;
+        }
+        return ways;
+    }
+}
